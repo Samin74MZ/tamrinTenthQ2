@@ -34,27 +34,14 @@ class QuestionFragment : Fragment() {
         if (qNumber==9){
             binding.buttonNext.isEnabled=false
         }
-
-        if (view==binding.buttonF){
-            choseButton(binding.buttonF)
-        }
-        if (view==binding.buttonT){
-            choseButton(binding.buttonT)
-        }
-        if (view==binding.buttonNext){
-            choseButton(binding.buttonNext)
-            updateQuestion(listOfQuestion[qNumber])
-        }
-        if (view==binding.buttonPrev){
-            choseButton(binding.buttonPrev)
-            updateQuestion(listOfQuestion[qNumber])
-        }
-        if (view==binding.buttonCheat) {
-            initView()
-        }
+        choseButton()
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        choseButton()
+    }
 
     private fun initView(){
 
@@ -65,8 +52,8 @@ class QuestionFragment : Fragment() {
     private fun updateQuestion(question: Question) {
         binding.textViewQ.text=question.question
     }
-    fun choseButton(view:View){
-        if (view==binding.buttonPrev){
+    fun choseButton(){
+        binding.buttonPrev.setOnClickListener {
             qNumber -= 1
             updateQuestion(listOfQuestion[qNumber])
             binding.buttonT.isEnabled=true
@@ -76,7 +63,7 @@ class QuestionFragment : Fragment() {
                 binding.buttonPrev.isEnabled=false
             }
         }
-        if (view==binding.buttonNext){
+        binding.buttonNext.setOnClickListener{
             qNumber += 1
             updateQuestion(listOfQuestion[qNumber])
             binding.buttonT.isEnabled=true
@@ -86,11 +73,11 @@ class QuestionFragment : Fragment() {
                 binding.buttonNext.isEnabled=false
             }
         }
-        if (view==binding.buttonCheat){
+        binding.buttonCheat.setOnClickListener{
             initView()
             listOfQuestion[qNumber].cheat=true
         }
-        if (view==binding.buttonF){
+        binding.buttonF.setOnClickListener{
             if (binding.buttonF.text.toString().lowercase()==listOfQuestion[qNumber].answer.toString()){
                 if (listOfQuestion[qNumber].cheat){
                     Toast.makeText(context,"Cheating is wrong!", Toast.LENGTH_SHORT).show()
@@ -101,10 +88,10 @@ class QuestionFragment : Fragment() {
                 Toast.makeText(context,"Incorrect!", Toast.LENGTH_SHORT).show()
             }
             binding.buttonT.isEnabled=false
-            view.isEnabled=false
-
+            view?.isEnabled=false
         }
-        if (view==binding.buttonT){
+
+        binding.buttonT.setOnClickListener{
             if (binding.buttonT.text.toString().lowercase()==listOfQuestion[qNumber].answer.toString()){
                 if (listOfQuestion[qNumber].cheat){
                     Toast.makeText(context,"Cheating is wrong!", Toast.LENGTH_SHORT).show()
@@ -115,7 +102,7 @@ class QuestionFragment : Fragment() {
             }else{
                 Toast.makeText(context,"Incorrect!", Toast.LENGTH_SHORT).show()
             }
-            view.isEnabled=false
+            view?.isEnabled=false
             binding.buttonF.isEnabled=false
         }
     }
