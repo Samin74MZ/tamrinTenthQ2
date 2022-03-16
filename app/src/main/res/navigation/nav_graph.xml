@@ -18,5 +18,10 @@
         android:id="@+id/cheatFragment"
         android:name="com.example.tamrintenthq2.CheatFragment"
         android:label="fragment_cheat"
-        tools:layout="@layout/fragment_cheat" />
+        tools:layout="@layout/fragment_cheat" >
+        <argument
+            android:name="questionAnswer"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
 </navigation>
