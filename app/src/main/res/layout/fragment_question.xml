@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".QuestionFragment">
+
+    <TextView
+        android:id="@+id/textView_q"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <Button
+        android:id="@+id/button_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="104dp"
+        android:onClick="choseButton"
+        android:text="False"
+        app:layout_constraintBottom_toTopOf="@+id/button_cheat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_q" />
+
+    <Button
+        android:id="@+id/button_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:onClick="choseButton"
+        android:text="TRUE"
+        app:layout_constraintEnd_toStartOf="@+id/button_f"
+        app:layout_constraintHorizontal_bias="0.982"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_f" />
+
+    <Button
+        android:id="@+id/button_cheat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:onClick="choseButton"
+        android:text="CHEAT!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_q" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="choseButton"
+        android:text="NEXT"
+        app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:iconGravity="textEnd"
+        app:layout_constraintStart_toStartOf="@+id/button_f"
+        app:layout_constraintTop_toBottomOf="@+id/button_cheat" />
+
+    <Button
+        android:id="@+id/button_prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="choseButton"
+        android:text="PREV"
+        app:icon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="@+id/button_t"
+        app:layout_constraintTop_toTopOf="@+id/button_next" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
