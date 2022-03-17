@@ -16,38 +16,46 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.31" />
-
-    <Button
-        android:id="@+id/button_f"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/answer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="8dp"
-        android:text="False"
-        app:layout_constraintBottom_toTopOf="@+id/button_cheat"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="horizontal"
+       app:layout_constraintTop_toBottomOf="@id/textView_q"
+        app:layout_constraintBottom_toTopOf="@id/button_cheat"
+        android:layout_margin="10dp"
+        android:gravity="center">
+    <Button
+    android:id="@+id/button_f"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+    android:text="False"
+    app:layout_constraintBottom_toTopOf="@+id/button_cheat"
+    app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_t"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:text="TRUE"
+        android:layout_margin="5dp"
         app:layout_constraintEnd_toStartOf="@+id/button_f"
-        app:layout_constraintHorizontal_bias="0.621"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button_f" />
+    avity="center">
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_cheat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="20dp"
         android:text="CHEAT!"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_q" />
+        app:layout_constraintTop_toBottomOf="@id/answer" />
 
     <Button
         android:id="@+id/button_next"
