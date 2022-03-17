@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.tamrintenthq2.databinding.FragmentQuestionBinding
 
 class QuestionFragment : Fragment() {
     lateinit var binding:FragmentQuestionBinding
-    val questionViewModel:QuestionModelView by viewModels()
+    val questionViewModel:QuestionModelView by activityViewModels()
     var listOfQuestion=QuestionModelView().qList
     var qNumber=0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +46,7 @@ class QuestionFragment : Fragment() {
 
     private fun initView(){
 
-        val action=QuestionFragmentDirections.actionQuestionFragmentToCheatFragment(listOfQuestion[qNumber].answer)
+        val action=QuestionFragmentDirections.actionQuestionFragmentToCheatFragment(questionViewModel.qList[qNumber].answer,qNumber)
         findNavController().navigate(action)
 
     }
@@ -55,7 +56,7 @@ class QuestionFragment : Fragment() {
     fun choseButton(){
         binding.buttonPrev.setOnClickListener {
             qNumber -= 1
-            updateQuestion(listOfQuestion[qNumber])
+            updateQuestion(questionViewModel.qList[qNumber])
             binding.buttonT.isEnabled=true
             binding.buttonF.isEnabled=true
             binding.buttonNext.isEnabled=true
@@ -65,7 +66,7 @@ class QuestionFragment : Fragment() {
         }
         binding.buttonNext.setOnClickListener{
             qNumber += 1
-            updateQuestion(listOfQuestion[qNumber])
+            updateQuestion(questionViewModel.qList[qNumber])
             binding.buttonT.isEnabled=true
             binding.buttonF.isEnabled=true
             binding.buttonPrev.isEnabled=true
@@ -75,11 +76,11 @@ class QuestionFragment : Fragment() {
         }
         binding.buttonCheat.setOnClickListener{
             initView()
-            listOfQuestion[qNumber].cheat=true
+//            listOfQuestion[qNumber].cheat=true
         }
         binding.buttonF.setOnClickListener{
-            if (binding.buttonF.text.toString().lowercase()==listOfQuestion[qNumber].answer.toString()){
-                if (listOfQuestion[qNumber].cheat){
+            if (binding.buttonF.text.toString().lowercase()==questionViewModel.qList[qNumber].answer.toString()){
+                if (questionViewModel.qList[qNumber].cheat){
                     Toast.makeText(context,"Cheating is wrong!", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(context,"Correct!", Toast.LENGTH_SHORT).show()
@@ -92,8 +93,8 @@ class QuestionFragment : Fragment() {
         }
 
         binding.buttonT.setOnClickListener{
-            if (binding.buttonT.text.toString().lowercase()==listOfQuestion[qNumber].answer.toString()){
-                if (listOfQuestion[qNumber].cheat){
+            if (binding.buttonT.text.toString().lowercase()==questionViewModel.qList[qNumber].answer.toString()){
+                if (questionViewModel.qList[qNumber].cheat){
                     Toast.makeText(context,"Cheating is wrong!", Toast.LENGTH_SHORT).show()
                 }
                 else{

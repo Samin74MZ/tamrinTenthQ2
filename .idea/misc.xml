@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rs/AndroidStudioProjects/tamrinTenthQ2/app/src/main/res/layout-land/activity_main.xml" value="0.20855379188712522" />
+        <entry key="..\:/Users/rs/AndroidStudioProjects/tamrinTenthQ2/app/src/main/res/layout-land/fragment_cheat.xml" value="0.20855379188712522" />
+        <entry key="..\:/Users/rs/AndroidStudioProjects/tamrinTenthQ2/app/src/main/res/layout-land/fragment_question.xml" value="0.20855379188712522" />
         <entry key="..\:/Users/rs/AndroidStudioProjects/tamrinTenthQ2/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/rs/AndroidStudioProjects/tamrinTenthQ2/app/src/main/res/layout/fragment_cheat.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/rs/AndroidStudioProjects/tamrinTenthQ2/app/src/main/res/layout/fragment_ched.xml" value="0.22826086956521738" />
