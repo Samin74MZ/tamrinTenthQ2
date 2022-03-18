@@ -6,15 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.tamrintenthq2.databinding.FragmentCheatBinding
 
 
 class CheatFragment : Fragment() {
-   lateinit var binding:FragmentCheatBinding
-    val questionViewModel:QuestionModelView by activityViewModels()
-   val args:CheatFragmentArgs by navArgs()
+    private lateinit var binding: FragmentCheatBinding
+    private val questionViewModel: QuestionModelView by activityViewModels()
+    private val args: CheatFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,13 +22,13 @@ class CheatFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        binding= FragmentCheatBinding.inflate(layoutInflater,container,false)
-        var getInfo=args.questionAnswer.toString()
+        binding = FragmentCheatBinding.inflate(layoutInflater, container, false)
+        val getInfo = args.questionAnswer.toString()
         binding.button6.setOnClickListener {
-            binding.textView2.text= getInfo
-            questionViewModel.qList[args.number].cheat=true
+            binding.textView2.text = getInfo
+            questionViewModel.qList[args.number].cheat = true
         }
         return binding.root
 

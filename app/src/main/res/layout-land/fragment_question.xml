@@ -16,33 +16,35 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.31" />
+
     <LinearLayout
         android:id="@+id/answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-       app:layout_constraintTop_toBottomOf="@id/textView_q"
-        app:layout_constraintBottom_toTopOf="@id/button_cheat"
         android:layout_margin="10dp"
-        android:gravity="center">
-    <Button
-    android:id="@+id/button_f"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-    android:text="False"
-    app:layout_constraintBottom_toTopOf="@+id/button_cheat"
-    app:layout_constraintEnd_toEndOf="parent" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/button_cheat"
+        app:layout_constraintTop_toBottomOf="@id/textView_q">
 
-    <Button
-        android:id="@+id/button_t"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TRUE"
-        android:layout_margin="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/button_f"
-        app:layout_constraintTop_toTopOf="@+id/button_f" />
-    avity="center">
+        <Button
+            android:id="@+id/button_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/false_answer"
+            app:layout_constraintBottom_toTopOf="@+id/button_cheat"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/button_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/true_answer"
+            style=""
+             />
+
 
     </LinearLayout>
 
@@ -51,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="CHEAT!"
+        android:text="@string/cheat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +63,7 @@
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NEXT"
+        android:text="@string/next"
         app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
         app:iconGravity="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +74,7 @@
         android:id="@+id/button_prev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PREV"
+        android:text="@string/prev"
         app:icon="@drawable/ic_baseline_arrow_back_ios_24"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toBottomOf="parent"

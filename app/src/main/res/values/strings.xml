@@ -2,4 +2,11 @@
     <string name="app_name">tamrinTenthQ2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sure_question">Are you sure you want to do this?</string>
+    <string name="show_answer">Show Answer</string>
+    <string name="false_answer">False</string>
+    <string name="true_answer">TRUE</string>
+    <string name="cheat">CHEAT!</string>
+    <string name="next">NEXT</string>
+    <string name="prev">PREV</string>
 </resources>
