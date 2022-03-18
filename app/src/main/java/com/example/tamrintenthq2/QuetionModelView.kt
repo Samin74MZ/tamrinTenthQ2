@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 data class Question(var question: String, var answer: Boolean, var cheat: Boolean = false)
 class QuestionModelView : ViewModel() {
     var qNumber=0
+    var falseState=true
+    var trueState=true
+    var prevState=true
+    var nextState=true
     var qList = mutableListOf<Question>()
     private var q1 = Question("Each natural number has at least two natural counters", false)
     private var q2 = Question("From one point just a straight line goes on.", false)

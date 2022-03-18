@@ -28,10 +28,15 @@ class QuestionFragment : Fragment() {
 
         binding.textViewQ.text = questionViewModel.qList[questionViewModel.qNumber].question
         if (questionViewModel.qNumber == 0) {
-            binding.buttonPrev.isEnabled = false
+            questionViewModel.prevState = false
+            binding.buttonPrev.isEnabled = questionViewModel.prevState
+
         }
         if (questionViewModel.qNumber == 9) {
-            binding.buttonNext.isEnabled = false
+            questionViewModel.nextState = false
+            binding.buttonNext.isEnabled = questionViewModel.nextState
+
+
         }
         choseButton()
         return binding.root
@@ -56,27 +61,39 @@ class QuestionFragment : Fragment() {
         binding.textViewQ.text = question.question
     }
 
-   private fun choseButton() {
+    private fun choseButton() {
         binding.buttonPrev.setOnClickListener {
 
-            questionViewModel.qNumber-=1
+            questionViewModel.qNumber -= 1
             updateQuestion(questionViewModel.qList[questionViewModel.qNumber])
-            binding.buttonT.isEnabled = true
-            binding.buttonF.isEnabled = true
-            binding.buttonNext.isEnabled = true
+            questionViewModel.trueState = true
+            binding.buttonT.isEnabled = questionViewModel.trueState
+            questionViewModel.falseState = true
+            binding.buttonF.isEnabled = questionViewModel.falseState
+            questionViewModel.nextState = true
+            binding.buttonNext.isEnabled = questionViewModel.nextState
+
             if (questionViewModel.qNumber == 0) {
-                binding.buttonPrev.isEnabled = false
+                questionViewModel.prevState = false
+                binding.buttonPrev.isEnabled = questionViewModel.prevState
+
             }
         }
         binding.buttonNext.setOnClickListener {
 
-            questionViewModel.qNumber+=1
+            questionViewModel.qNumber += 1
             updateQuestion(questionViewModel.qList[questionViewModel.qNumber])
-            binding.buttonT.isEnabled = true
-            binding.buttonF.isEnabled = true
-            binding.buttonPrev.isEnabled = true
+            questionViewModel.trueState = true
+            binding.buttonT.isEnabled = questionViewModel.trueState
+            questionViewModel.falseState = true
+            binding.buttonF.isEnabled = questionViewModel.falseState
+            questionViewModel.prevState = true
+            binding.buttonPrev.isEnabled = questionViewModel.prevState
+
             if (questionViewModel.qNumber == 9) {
-                binding.buttonNext.isEnabled = false
+                questionViewModel.nextState = false
+                binding.buttonNext.isEnabled = questionViewModel.nextState
+
             }
         }
         binding.buttonCheat.setOnClickListener {
@@ -95,8 +112,9 @@ class QuestionFragment : Fragment() {
             } else {
                 Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show()
             }
-            binding.buttonT.isEnabled = false
-            view?.isEnabled = false
+            questionViewModel.trueState = false
+            binding.buttonT.isEnabled = questionViewModel.trueState
+
         }
 
         binding.buttonT.setOnClickListener {
@@ -111,8 +129,10 @@ class QuestionFragment : Fragment() {
             } else {
                 Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show()
             }
-            view?.isEnabled = false
-            binding.buttonF.isEnabled = false
+
+            questionViewModel.falseState = false
+            binding.buttonF.isEnabled = questionViewModel.falseState
+
         }
     }
 
